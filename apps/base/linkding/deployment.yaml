@@ -12,6 +12,12 @@ spec:
       labels:
         app: linkding
     spec:
+      securityContext:
+        runAsUser: 33
+      volumes:
+        - name: linkding-data
+          persistentVolumeClaim:
+            claimName: linkding-data-pvc
       containers:
         - name: linkding
           image: ghcr.io/sissbruecker/linkding:1.45.0
@@ -20,7 +26,5 @@ spec:
           volumeMounts:
             - mountPath: "/etc/linkding/data"
               name: linkding-data
-      volumes:
-        - name: linkding-data
-          persistentVolumeClaim:
-            claimName: linkding-data-pvc
+          securityContext:
+            allowPrivilegeEscalation: false
