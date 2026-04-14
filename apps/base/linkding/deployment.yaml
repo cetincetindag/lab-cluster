@@ -15,11 +15,11 @@ spec:
       containers:
         - name: linkding
           image: ghcr.io/sissbruecker/linkding:1.45.0
-          volumeMounts:
-            - mountPath: "/app/testmount"
-              name: linkding-data
           ports:
             - containerPort: 9090
+              volumeMounts:
+                - mountPath: "/etc/linkding/data"
+                  name: linkding-data
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
