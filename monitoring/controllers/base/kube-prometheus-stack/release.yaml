@@ -27,3 +27,9 @@ spec:
   values:
     grafana:
       adminPassword: helloworld
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        hosts:
+          - grafana.cetindag.org
+        path: /
