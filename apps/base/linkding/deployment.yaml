@@ -23,6 +23,15 @@ spec:
       containers:
         - name: linkding
           image: ghcr.io/sissbruecker/linkding:1.45.0
+          env:
+            - name: LD_SUPERUSER_NAME
+              secretKeyRef:
+                - name: linkding-superuser-creds
+                  key: LD_SUPERUSER_NAME
+            - name: LD_SUPERUSER_NAME
+              secretKeyRef:
+                - name: linkding-superuser-creds
+                  key: LD_SUPERUSER_PASSWORD
           ports:
             - containerPort: 9090
           securityContext:
