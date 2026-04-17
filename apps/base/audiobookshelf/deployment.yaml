@@ -22,8 +22,6 @@ spec:
           envFrom:
             - configMap:
                 name: audiobookshelf-configmap
-          securityContext:
-            allowPrivilegeEscalation: false
           volumeMounts:
             - mountPath: "/etc/audiobookshelf/data"
               name: audiobookshelf-data
