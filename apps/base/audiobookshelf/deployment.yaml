@@ -20,7 +20,7 @@ spec:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:latest
           envFrom:
-            - configMap:
+            - configMapRef:
                 name: audiobookshelf-configmap
           volumeMounts:
             - mountPath: "/etc/audiobookshelf/data"
