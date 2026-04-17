@@ -4,6 +4,6 @@ metadata:
   name: audiobookshelf-configmap
   namespace: audiobookshelf
 data:
-  PORT: 3005
+  PORT: "3005"
   SOURCE: "docker"
   NODE_ENV: "staging"
