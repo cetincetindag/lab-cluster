@@ -2,5 +2,16 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "kubernetes": {
     "fileMatch": ["\\.yaml$"]
-  }
+  },
+  "dependencyDashboardApproval": false,
+  "packageRules": [
+    {
+      "description": "Automerge container image updates in Kubernetes manifests",
+      "matchDatasources": ["docker"],
+      "matchManagers": ["kubernetes"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    }
+  ]
 }
