@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lablens
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lablens
+  template:
+    metadata:
+      labels:
+        app: lablens
+    spec:
+      containers:
+        - name: lablens
+          image: ghcr.io/cetincetindag/lablens:0.1.2
+          env:
+            - name: PROMETHEUS_URL
+              value: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
+            - name: PORT
+              value: "8080"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          securityContext:
+            allowPrivilegeEscalation: false
