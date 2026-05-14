@@ -16,7 +16,7 @@ spec:
         - name: ghcr-pull-secret
       containers:
         - name: blog
-          image: ghcr.io/cetincetindag/blog:0.0.2
+          image: ghcr.io/cetincetindag/blog:0.0.4
           ports:
             - containerPort: 3000
               protocol: TCP
